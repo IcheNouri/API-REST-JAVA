@@ -1,0 +1,58 @@
+package com.nouri.api.ui.controller;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nouri.api.ui.model.reponse.UserRest;
+
+@RestController
+@RequestMapping("users")
+public class UserController {
+
+	@GetMapping
+	public  String getUsers(@RequestParam(value="page", defaultValue="1") int page,
+							@RequestParam(value="limit", defaultValue="50") int limit,
+							@RequestParam(value="sort", required=false) String sort
+							)
+	{
+		return "get user func was called with page: " + page + " limit: " + limit + " and sort = " + sort;
+	}
+	
+	@GetMapping(path="/{userId}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	public  UserRest getUser(@PathVariable String userId)
+	{
+		UserRest response = new UserRest();
+		
+		response.setFirstName("Nouri");
+		response.setLastName("ICHE");
+		response.setEmail("nouri@gmail.com");
+		response.setUserId(userId);
+		
+		return response;
+	}
+	
+	@PostMapping()
+	public String createUser()
+	{
+		return "create user func was called";
+	}
+	
+	@PutMapping()
+	public String updateUser()
+	{
+		return "update user func was called";
+	}
+	
+	@DeleteMapping()
+	public String deleteUser()
+	{
+		return "delete user func was called";
+	}
+}

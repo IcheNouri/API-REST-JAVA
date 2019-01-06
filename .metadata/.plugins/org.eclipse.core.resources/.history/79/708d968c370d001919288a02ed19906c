@@ -1,0 +1,5 @@
+package com.nouri.api.ui.controller;
+
+public @interface RestMapping {
+
+}

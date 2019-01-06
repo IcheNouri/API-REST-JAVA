@@ -1,0 +1,5 @@
+package com.nouri.api.ui.model.request;
+
+public class UserDetailRequestModel {
+
+}

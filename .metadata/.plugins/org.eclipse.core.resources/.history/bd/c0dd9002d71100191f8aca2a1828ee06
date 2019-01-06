@@ -1,0 +1,5 @@
+package com.nouri.api.ui.model.reponse;
+
+public class UserRest {
+
+}
